@@ -47,7 +47,7 @@ function slackpress_deliver_payload($url, $payload)
 {
 	$delivered = get_transient( 'slackpress_delivery' );
 
-	// if ( false === $delivered ) {
+	if ( false === $delivered ) {
 
 		$response = wp_remote_post( $url, array(
 				'method' => 'POST',
@@ -56,5 +56,5 @@ function slackpress_deliver_payload($url, $payload)
 		);
 
 		set_transient( 'slackpress_delivery', true, 60 * 60 * 24 );
-	// }
+	}
 }

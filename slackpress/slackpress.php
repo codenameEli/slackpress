@@ -4,11 +4,12 @@ add_action( 'shutdown', 'slackpress_init' );
 
 function slackpress_init()
 {
-	$webhook_url = ""; // Browse Apps > Custom Integrations > Incoming WebHooks > Edit configuration - Setup Instructions - Webhook URL
+	$webhook_url = "https://hooks.slack.com/services/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";
 	$site_info = slackpress_get_site_info();
 	$payload = array(
 		"text" =>  "Checkup",
-		"username" =>  $site_info['site_title'],
+		"username" =>  "efwefew",
+		"icon_url" => WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png",
 		"attachments" =>  array(
 		   array(
 				"fallback" => "",
@@ -24,6 +25,8 @@ function slackpress_init()
 		   )
 		)
 	);
+
+	var_dump(WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png");
 
 	slackpress_deliver_payload($webhook_url, $payload);
 }
@@ -44,7 +47,7 @@ function slackpress_deliver_payload($url, $payload)
 {
 	$delivered = get_transient( 'slackpress_delivery' );
 
-	if ( false === $delivered ) {
+	// if ( false === $delivered ) {
 
 		$response = wp_remote_post( $url, array(
 				'method' => 'POST',
@@ -53,5 +56,5 @@ function slackpress_deliver_payload($url, $payload)
 		);
 
 		set_transient( 'slackpress_delivery', true, 60 * 60 * 24 );
-	}
+	// }
 }

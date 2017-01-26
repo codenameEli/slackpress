@@ -1,3 +1,3 @@
 <?php
 
-require WPMU_PLUGIN_DIR.'/slackpress/class-slackpress.php';
+require WPMU_PLUGIN_DIR.'/slackpress/slackpress.php';

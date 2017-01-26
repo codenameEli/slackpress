@@ -8,7 +8,7 @@ function slackpress_init()
 	$site_info = slackpress_get_site_info();
 	$payload = array(
 		"text" =>  "Checkup",
-		"username" =>  "efwefew",
+		"username" =>  $site_info['site_title'],
 		"icon_url" => WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png",
 		"attachments" =>  array(
 		   array(

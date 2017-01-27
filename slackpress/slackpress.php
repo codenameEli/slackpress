@@ -4,10 +4,10 @@ add_action( 'shutdown', 'slackpress_init' );
 
 function slackpress_init()
 {
-	$webhook_url = "https://hooks.slack.com/services/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";
+	$webhook_url = "https://hooks.slack.com/services/T0292SS5A/aaa000/00000000";
 	$site_info = slackpress_get_site_info();
 	$payload = array(
-		"text" =>  "Checkup",
+		"text" =>  "Health Report - " . date('F jS Y'),
 		"username" =>  $site_info['site_title'],
 		"icon_url" => WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png",
 		"attachments" =>  array(
@@ -17,7 +17,7 @@ function slackpress_init()
 				"color" => "good",
 				"fields" => array(
 					array(
-						"title" => "WordPress Version",
+						"title" => "WordPress Version:",
 						"value" => $site_info['wp_version'],
 						"short" => true
 					)

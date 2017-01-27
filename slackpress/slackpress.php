@@ -25,8 +25,6 @@ function slackpress_init()
 		)
 	);
 
-	var_dump(WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png");
-
 	slackpress_deliver_payload($webhook_url, $payload);
 }
 

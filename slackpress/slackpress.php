@@ -7,8 +7,13 @@ function slackpress_init()
 	$webhook_url = "https://hooks.slack.com/services/T0292SS5A/aaa000/00000000";
 	$site_info = slackpress_get_site_info();
 	$payload = array(
+<<<<<<< Updated upstream
 		"text" =>  "Health Report - " . date('F jS Y'),
 		"username" =>  $site_info['site_title'],
+=======
+		"text" =>  "Checkup",
+		"username" =>  'warfel',
+>>>>>>> Stashed changes
 		"icon_url" => WPMU_PLUGIN_URL . "/slackpress/assets/slackpress-logo.png",
 		"attachments" =>  array(
 		   array(
@@ -45,7 +50,7 @@ function slackpress_deliver_payload($url, $payload)
 {
 	$delivered = get_transient( 'slackpress_delivery' );
 
-	if ( false === $delivered ) {
+	// if ( false === $delivered ) {
 
 		$response = wp_remote_post( $url, array(
 				'method' => 'POST',
@@ -54,5 +59,5 @@ function slackpress_deliver_payload($url, $payload)
 		);
 
 		set_transient( 'slackpress_delivery', true, 60 * 60 * 24 );
-	}
+	// }
 }

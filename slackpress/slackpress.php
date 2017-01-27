@@ -143,6 +143,4 @@ class SlackPress
 	}
 }
 
-new SlackPress();_transient( 'slackpress_delivery', true, 60 * 60 * 24 );
-	// }
-}
+new SlackPress();

@@ -26,7 +26,10 @@ class SlackPress
 		$this->check_theme();
 		$this->check_plugins();
 
-		if ( count( $this->payload->attachments ) === 0 ) {
+		if (
+			is_object( $this->payload ) &&
+			count( $this->payload->attachments ) === 0
+		) {
 			$attachment = $this->create_attachment(':thumbsup: All Good!');
 
 			$this->add_attachment($attachment);
